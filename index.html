@@ -9,6 +9,9 @@
 <meta property="og:description" content="Private gel nail studio by Page Olsen. Hand-painted nail art, Gel-X extensions, builder gel, and premium cuticle care inside Phenix Salon Suites.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kalnyesgrowth.github.io/little-canvas-nail-studio/">
+<meta property="og:image" content="https://kalnyesgrowth.github.io/little-canvas-nail-studio/assets/poster.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
 <link rel="canonical" href="https://kalnyesgrowth.github.io/little-canvas-nail-studio/">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=boska@400,500,600,700&f[]=cabinet-grotesk@400,500,600,700&display=swap" rel="stylesheet">
@@ -174,7 +177,7 @@ nav.scrolled .nav-toggle svg { stroke: var(--text); }
 
 /* CTA BANNER */
 .cta-banner { position: relative; text-align: center; color: #fff; padding: 5rem 2rem; }
-.cta-banner-bg { position: absolute; inset: 0; background: url('https://images.pexels.com/photos/3997390/pexels-photo-3997390.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat; }
+.cta-banner-bg { position: absolute; inset: 0; background: url('assets/cta-bg.jpg') center/cover no-repeat; }
 .cta-banner-overlay { position: absolute; inset: 0; background: rgba(42,31,31,0.85); }
 .cta-banner-content { position: relative; z-index: 1; }
 .cta-banner h2 { color: #fff; margin-bottom: 0.75rem; }
@@ -256,7 +259,8 @@ footer { background: #2A1F1F; color: rgba(255,255,255,0.7); padding: 3rem 2rem 1
   "@type": "NailSalon",
   "name": "Little Canvas Nail Studio LLC",
   "image": "https://kalnyesgrowth.github.io/little-canvas-nail-studio/assets/poster.jpg",
-  "url": "https://www.vagaro.com/littlecanvasnailstudio",
+  "url": "https://kalnyesgrowth.github.io/little-canvas-nail-studio/",
+  "sameAs": ["https://www.vagaro.com/littlecanvasnailstudio", "https://www.instagram.com/littlecanvasnailstudio/", "https://www.facebook.com/339434332588190"],
   "telephone": "+18044815141",
   "email": "littlecanvasnailstudio@gmail.com",
   "address": {
@@ -724,7 +728,7 @@ footer { background: #2A1F1F; color: rgba(255,255,255,0.7); padding: 3rem 2rem 1
     </div>
   </div>
   <div class="footer-bottom">
-    <span>&copy; 2025 Little Canvas Nail Studio LLC. All rights reserved.</span>
+    <span>&copy; 2026 Little Canvas Nail Studio LLC. All rights reserved.</span>
     <div class="footer-social">
       <a href="https://www.instagram.com/littlecanvasnailstudio/" target="_blank" rel="noopener" aria-label="Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
@@ -749,7 +753,7 @@ footer { background: #2A1F1F; color: rgba(255,255,255,0.7); padding: 3rem 2rem 1
 </div>
 
 <!-- POPUPS -->
-<div class="popup-overlay" id="exitPopup">
+<div class="popup-overlay" id="exitPopup" aria-hidden="true">
   <div class="popup">
     <button class="popup-close" onclick="this.parentElement.parentElement.classList.remove('show')">&times;</button>
     <h3>Follow the Art</h3>
@@ -757,7 +761,7 @@ footer { background: #2A1F1F; color: rgba(255,255,255,0.7); padding: 3rem 2rem 1
     <a href="https://www.instagram.com/littlecanvasnailstudio/" target="_blank" rel="noopener" class="popup-btn">Follow @littlecanvasnailstudio</a>
   </div>
 </div>
-<div class="popup-overlay" id="scrollPopup">
+<div class="popup-overlay" id="scrollPopup" aria-hidden="true">
   <div class="popup">
     <button class="popup-close" onclick="this.parentElement.parentElement.classList.remove('show')">&times;</button>
     <h3>Book Before Spots Fill</h3>
@@ -765,7 +769,7 @@ footer { background: #2A1F1F; color: rgba(255,255,255,0.7); padding: 3rem 2rem 1
     <a href="https://www.vagaro.com/littlecanvasnailstudio" target="_blank" rel="noopener" class="popup-btn">Book on Vagaro</a>
   </div>
 </div>
-<div class="popup-overlay" id="timedPopup">
+<div class="popup-overlay" id="timedPopup" aria-hidden="true">
   <div class="popup">
     <button class="popup-close" onclick="this.parentElement.parentElement.classList.remove('show')">&times;</button>
     <h3>New Clients Welcome</h3>
@@ -811,11 +815,12 @@ footer { background: #2A1F1F; color: rgba(255,255,255,0.7); padding: 3rem 2rem 1
   window.addEventListener('scroll', updateTimeline); updateTimeline();
 
   var shown = {};
-  function showPopup(id){ if(shown[id]) return; shown[id] = true; var el = document.getElementById(id); if(el) el.classList.add('show'); }
+  function showPopup(id){ if(shown[id]) return; shown[id] = true; var el = document.getElementById(id); if(el){ el.classList.add('show'); el.setAttribute('aria-hidden','false'); } }
   document.addEventListener('mouseleave', function(e){ if(e.clientY < 10) showPopup('exitPopup'); });
   window.addEventListener('scroll', function(){ if(window.scrollY / (document.body.scrollHeight - window.innerHeight) > 0.6) showPopup('scrollPopup'); });
   setTimeout(function(){ showPopup('timedPopup'); }, 30000);
-  document.querySelectorAll('.popup-overlay').forEach(function(o){ o.addEventListener('click', function(e){ if(e.target === o) o.classList.remove('show'); }); });
+  document.querySelectorAll('.popup-overlay').forEach(function(o){ o.addEventListener('click', function(e){ if(e.target === o){ o.classList.remove('show'); o.setAttribute('aria-hidden','true'); } }); });
+  document.querySelectorAll('.popup-close').forEach(function(b){ b.addEventListener('click', function(){ var p = this.closest('.popup-overlay'); if(p){ p.classList.remove('show'); p.setAttribute('aria-hidden','true'); } }); });
 
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
