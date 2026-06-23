@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Little Canvas Nail Studio | Fredericksburg, VA - Gel Nails &amp; Nail Art</title>
+<meta name="description" content="Private nail art studio in Fredericksburg, VA. Licensed nail technician specializing in gel manicures, hand-painted nail art, Gel-X extensions, and high-end cuticle care. No acrylics. Book on Vagaro.">
+<meta property="og:title" content="Little Canvas Nail Studio | Fredericksburg, VA">
+<meta property="og:description" content="Private gel nail studio by Page Olsen. Hand-painted nail art, Gel-X extensions, builder gel, and premium cuticle care inside Phenix Salon Suites.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kalnyesgrowth.github.io/little-canvas-nail-studio/">
+<link rel="canonical" href="https://kalnyesgrowth.github.io/little-canvas-nail-studio/">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=boska@400,500,600,700&f[]=cabinet-grotesk@400,500,600,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FDFBFA;
+  --bg-2: #F5EDEA;
+  --accent: #C4727A;
+  --accent-hover: #A85860;
+  --accent-light: rgba(196,114,122,0.08);
+  --text: #2A1F1F;
+  --text-muted: #8A7575;
+  --text-50: rgba(42,31,31,0.5);
+  --border: rgba(42,31,31,0.1);
+  --card-bg: #FFFFFF;
+  --font-heading: 'Boska', serif;
+  --font-body: 'Cabinet Grotesk', sans-serif;
+  --text-xs: 0.694rem;
+  --text-sm: 0.833rem;
+  --text-base: 1rem;
+  --text-lg: 1.2rem;
+  --text-xl: 1.44rem;
+  --text-2xl: 1.728rem;
+  --text-3xl: 2.074rem;
+  --text-4xl: 2.488rem;
+  --text-5xl: 2.986rem;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow-x: hidden; max-width: 100vw; }
+body { font-family: var(--font-body); font-size: var(--text-base); line-height: 1.7; color: var(--text); background: var(--bg); }
+h1, h2, h3, h4 { font-family: var(--font-heading); line-height: 1.15; }
+h1 { font-size: clamp(2.2rem, 5vw, var(--text-5xl)); font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 4vw, var(--text-4xl)); font-weight: 700; }
+h3 { font-size: clamp(1.2rem, 3vw, var(--text-3xl)); font-weight: 600; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+.section-label { font-family: var(--font-body); font-size: var(--text-xs); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; transition: background 0.4s, box-shadow 0.4s; background: transparent; }
+nav.scrolled { background: rgba(253,251,250,0.95); box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+.nav-logo { font-family: var(--font-heading); font-size: var(--text-xl); font-weight: 700; color: #fff; transition: color 0.4s; }
+nav.scrolled .nav-logo { color: var(--text); }
+.nav-links { display: flex; align-items: center; gap: 1.5rem; }
+.nav-links a { font-size: var(--text-sm); font-weight: 500; color: rgba(255,255,255,0.85); transition: color 0.4s; }
+nav.scrolled .nav-links a { color: var(--text-muted); }
+.nav-links a:hover { color: #fff; }
+nav.scrolled .nav-links a:hover { color: var(--accent); }
+.nav-cta { padding: 0.5rem 1.2rem; border: 1.5px solid rgba(255,255,255,0.7); border-radius: 6px; font-size: var(--text-sm); font-weight: 600; color: #fff !important; transition: all 0.3s; }
+nav.scrolled .nav-cta { border-color: var(--accent); color: var(--accent) !important; }
+.nav-cta:hover { background: rgba(255,255,255,0.15); }
+nav.scrolled .nav-cta:hover { background: var(--accent); color: #fff !important; }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+.nav-toggle svg { stroke: #fff; transition: stroke 0.4s; }
+nav.scrolled .nav-toggle svg { stroke: var(--text); }
+
+/* HERO */
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; background: url('assets/poster.jpg') center/cover no-repeat; background-color: #3A2525; }
+.hero-bg canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,31,31,0.55) 0%, rgba(42,31,31,0.75) 100%); z-index: 1; }
+.hero-content { position: relative; z-index: 2; max-width: 700px; padding: 2rem; }
+.hero-badge { display: inline-block; padding: 0.4rem 1.2rem; background: rgba(255,255,255,0.12); border-radius: 50px; font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.05em; margin-bottom: 1.5rem; }
+.hero h1 { margin-bottom: 1rem; text-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+.hero p { font-size: var(--text-lg); opacity: 0.9; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+.hero-cta { display: inline-block; padding: 0.85rem 2.2rem; border: 2px solid rgba(255,255,255,0.7); border-radius: 6px; font-family: var(--font-body); font-size: var(--text-base); font-weight: 600; color: #fff; transition: all 0.3s; letter-spacing: 0.03em; }
+.hero-cta:hover { background: #fff; color: var(--text); }
+
+/* MARQUEE */
+.marquee { background: var(--accent); color: #fff; padding: 0.8rem 0; overflow: hidden; white-space: nowrap; }
+.marquee-track { display: inline-flex; animation: marquee 30s linear infinite; }
+.marquee-track span { padding: 0 2rem; font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+.marquee-track span::before { content: '\2022'; margin-right: 2rem; opacity: 0.5; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* SECTIONS */
+.section { padding: 5rem 2rem; }
+.section-center { max-width: 1100px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-header h2 { margin-bottom: 0.75rem; }
+.section-header p { color: var(--text-muted); max-width: 550px; margin: 0 auto; }
+
+/* SERVICES */
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.service-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; }
+.service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+.service-card img { width: 100%; height: 200px; object-fit: cover; }
+.service-card-body { padding: 1.2rem; }
+.service-card-body h3 { font-size: var(--text-lg); margin-bottom: 0.3rem; }
+.service-card-body .service-desc { font-size: var(--text-sm); color: var(--text-muted); margin-bottom: 0.5rem; }
+.service-card-body .service-price { font-family: var(--font-heading); font-size: var(--text-xl); color: var(--accent); font-weight: 700; }
+.service-card-body .service-duration { font-size: var(--text-xs); color: var(--text-50); margin-top: 0.25rem; }
+
+/* ARTIST */
+.artist-section { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.artist-img { border-radius: 16px; overflow: hidden; }
+.artist-img img { width: 100%; height: 450px; object-fit: cover; }
+.artist-text .section-label { text-align: left; }
+.artist-text h2 { text-align: left; margin-bottom: 1rem; }
+.artist-text p { color: var(--text-muted); margin-bottom: 1rem; }
+.artist-specs { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+.artist-spec { display: flex; align-items: center; gap: 0.4rem; padding: 0.4rem 1rem; background: var(--accent-light); border-radius: 50px; font-size: var(--text-sm); font-weight: 500; color: var(--accent); }
+
+/* PROCESS TIMELINE */
+.process-grid { position: relative; max-width: 700px; margin: 0 auto; }
+.timeline-line { position: absolute; left: 24px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+.timeline-fill { position: absolute; left: 24px; top: 0; width: 2px; height: 0; background: var(--accent); transition: height 0.1s; }
+.process-step { display: flex; gap: 2rem; padding: 2rem 0; position: relative; }
+.process-dot { width: 50px; min-width: 50px; height: 50px; border-radius: 50%; background: var(--bg); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 700; font-size: var(--text-lg); color: var(--text-muted); transition: all 0.4s; z-index: 1; }
+.process-step.active .process-dot { background: var(--accent); color: #fff; border-color: var(--accent); }
+.process-step-content h3 { font-size: var(--text-xl); margin-bottom: 0.4rem; }
+.process-step-content p { color: var(--text-muted); font-size: var(--text-sm); }
+
+/* GALLERY */
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.gallery-item { border-radius: 12px; overflow: hidden; aspect-ratio: 1; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.gallery-item:hover img { transform: scale(1.05); }
+
+/* REVIEWS */
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.review-card { background: var(--card-bg); border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 16px rgba(0,0,0,0.05); }
+.review-stars { display: flex; gap: 2px; margin-bottom: 0.75rem; }
+.review-stars svg { width: 16px; height: 16px; fill: #E8A838; }
+.review-text { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem; font-style: italic; }
+.review-author { display: flex; align-items: center; gap: 0.75rem; }
+.review-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 700; color: var(--accent); font-size: var(--text-sm); }
+.review-name { font-weight: 600; font-size: var(--text-sm); }
+.review-source { font-size: var(--text-xs); color: var(--text-50); }
+
+/* REVIEW CTA */
+.review-cta-section { background: var(--accent); color: #fff; text-align: center; padding: 3rem 2rem; }
+.review-cta-section h3 { color: #fff; margin-bottom: 0.5rem; }
+.review-cta-section p { color: rgba(255,255,255,0.8); margin-bottom: 1.5rem; }
+.review-cta-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.8rem; background: #fff; color: var(--accent); border-radius: 6px; font-weight: 600; transition: all 0.3s; }
+.review-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+.review-cta-btn svg { width: 18px; height: 18px; }
+
+/* HOURS & LOCATION */
+.hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.hours-table { width: 100%; border-collapse: collapse; }
+.hours-table tr { border-bottom: 1px solid var(--border); }
+.hours-table td { padding: 0.75rem 0; font-size: var(--text-sm); }
+.hours-table td:first-child { font-weight: 600; }
+.hours-table td:last-child { text-align: right; color: var(--text-muted); }
+.hours-table tr.today { background: var(--accent-light); border-radius: 6px; }
+.hours-table tr.today td { color: var(--accent); font-weight: 600; padding-left: 0.75rem; padding-right: 0.75rem; }
+.today-badge { display: inline-block; background: var(--accent); color: #fff; font-size: var(--text-xs); padding: 0.15rem 0.5rem; border-radius: 4px; margin-left: 0.5rem; font-weight: 700; }
+.map-container { border-radius: 12px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+.map-container iframe { width: 100%; height: 320px; border: none; }
+.map-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.75rem; font-size: var(--text-sm); color: var(--accent); font-weight: 600; }
+.map-link:hover { text-decoration: underline; }
+.arrival-note { margin-top: 1.5rem; padding: 1rem; background: var(--accent-light); border-radius: 8px; font-size: var(--text-sm); color: var(--text); }
+.arrival-note strong { color: var(--accent); }
+
+/* FAQ */
+.faq-list { max-width: 700px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item summary { padding: 1.2rem 0; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.faq-item summary::after { content: '+'; font-size: var(--text-xl); color: var(--accent); font-weight: 300; transition: transform 0.3s; }
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p { padding: 0 0 1.2rem; color: var(--text-muted); font-size: var(--text-sm); line-height: 1.7; }
+
+/* CTA BANNER */
+.cta-banner { position: relative; text-align: center; color: #fff; padding: 5rem 2rem; }
+.cta-banner-bg { position: absolute; inset: 0; background: url('https://images.pexels.com/photos/3997390/pexels-photo-3997390.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat; }
+.cta-banner-overlay { position: absolute; inset: 0; background: rgba(42,31,31,0.85); }
+.cta-banner-content { position: relative; z-index: 1; }
+.cta-banner h2 { color: #fff; margin-bottom: 0.75rem; }
+.cta-banner p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: var(--text-lg); }
+.cta-banner-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.cta-phone { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; background: var(--accent); color: #fff; border-radius: 6px; font-weight: 600; transition: all 0.3s; }
+.cta-phone:hover { background: var(--accent-hover); transform: translateY(-2px); }
+.cta-phone svg { width: 18px; height: 18px; }
+.cta-dir { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; border: 2px solid rgba(255,255,255,0.5); color: #fff; border-radius: 6px; font-weight: 600; transition: all 0.3s; }
+.cta-dir:hover { background: rgba(255,255,255,0.1); }
+.cta-dir svg { width: 18px; height: 18px; }
+
+/* FOOTER */
+footer { background: #2A1F1F; color: rgba(255,255,255,0.7); padding: 3rem 2rem 1.5rem; }
+.footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+.footer-brand h3 { font-family: var(--font-heading); color: #fff; font-size: var(--text-2xl); margin-bottom: 0.5rem; }
+.footer-brand p { font-size: var(--text-sm); line-height: 1.6; }
+.footer-col h4 { color: #fff; font-family: var(--font-heading); font-size: var(--text-lg); margin-bottom: 0.75rem; }
+.footer-col a { display: block; font-size: var(--text-sm); padding: 0.25rem 0; transition: color 0.3s; }
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom { max-width: 1100px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: var(--text-xs); }
+.footer-social { display: flex; gap: 1rem; }
+.footer-social a { color: rgba(255,255,255,0.5); transition: color 0.3s; }
+.footer-social a:hover { color: var(--accent); }
+.footer-social svg { width: 20px; height: 20px; fill: currentColor; }
+
+/* MOBILE STICKY */
+.mobile-sticky { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; background: var(--accent); padding: 12px 16px; gap: 10px; }
+.mobile-sticky a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.7rem; border-radius: 6px; font-weight: 600; font-size: var(--text-sm); }
+.mobile-sticky .sticky-call { background: #fff; color: var(--accent); }
+.mobile-sticky .sticky-dir { background: rgba(255,255,255,0.15); color: #fff; }
+.mobile-sticky svg { width: 16px; height: 16px; }
+
+/* POPUPS */
+.popup-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; align-items: center; justify-content: center; }
+.popup-overlay.show { display: flex; }
+.popup { background: var(--bg); border-radius: 16px; padding: 2.5rem; max-width: 420px; width: 90%; text-align: center; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+.popup-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); }
+.popup h3 { font-family: var(--font-heading); margin-bottom: 0.5rem; }
+.popup p { color: var(--text-muted); font-size: var(--text-sm); margin-bottom: 1.5rem; }
+.popup-btn { display: inline-block; padding: 0.75rem 2rem; background: var(--accent); color: #fff; border-radius: 6px; font-weight: 600; transition: all 0.3s; border: none; cursor: pointer; font-family: var(--font-body); font-size: var(--text-base); }
+.popup-btn:hover { background: var(--accent-hover); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .artist-section { grid-template-columns: 1fr; gap: 2rem; }
+  .hours-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 768px) {
+  h1 { font-size: var(--text-3xl); }
+  h2 { font-size: var(--text-2xl); }
+  h3 { font-size: var(--text-xl); }
+  body { font-size: 15px; }
+  .section { padding: 3.5rem 1.2rem; }
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(253,251,250,0.98); padding: 1rem 2rem 1.5rem; gap: 0.75rem; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+  .nav-links.open a { color: var(--text); }
+  .nav-toggle { display: block; }
+  nav { padding: 0.75rem 1.2rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .reviews-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+  .mobile-sticky { display: flex; }
+  body { padding-bottom: 72px; }
+  .cta-banner-actions { flex-direction: column; align-items: center; }
+  .hero-cta { white-space: normal; max-width: 90%; }
+  .artist-img img { height: 300px; }
+}
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NailSalon",
+  "name": "Little Canvas Nail Studio LLC",
+  "image": "https://kalnyesgrowth.github.io/little-canvas-nail-studio/assets/poster.jpg",
+  "url": "https://www.vagaro.com/littlecanvasnailstudio",
+  "telephone": "+18044815141",
+  "email": "littlecanvasnailstudio@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1380 Carl D Silver Pkwy, Phenix Salon Suites",
+    "addressLocality": "Fredericksburg",
+    "addressRegion": "VA",
+    "postalCode": "22401",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 38.298397,
+    "longitude": -77.458032
+  },
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "18:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "14:00"}
+  ],
+  "priceRange": "$$",
+  "founder": {
+    "@type": "Person",
+    "name": "Page Olsen"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav aria-label="Main navigation">
+  <a href="#" class="nav-logo">Little Canvas</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#services">Services</a>
+    <a href="#artist">About Page</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#hours">Hours</a>
+    <a href="https://www.vagaro.com/littlecanvasnailstudio" target="_blank" rel="noopener" class="nav-cta">Book Now</a>
+  </div>
+  <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Private Studio &middot; Gel Only</div>
+    <h1>Little Canvas Nail Studio</h1>
+    <p>Hand-painted nail art and gel services in a private Fredericksburg studio.</p>
+    <a href="https://www.vagaro.com/littlecanvasnailstudio" target="_blank" rel="noopener" class="hero-cta">Book Your Appointment</a>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Gel Manicures</span>
+    <span>Hand-Painted Nail Art</span>
+    <span>Gel-X Extensions</span>
+    <span>Builder Gel</span>
+    <span>Premium Cuticle Care</span>
+    <span>No Acrylics</span>
+    <span>Private Suite</span>
+    <span>Gel Manicures</span>
+    <span>Hand-Painted Nail Art</span>
+    <span>Gel-X Extensions</span>
+    <span>Builder Gel</span>
+    <span>Premium Cuticle Care</span>
+    <span>No Acrylics</span>
+    <span>Private Suite</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services" style="background: var(--bg);">
+  <div class="section-center">
+    <div class="section-header">
+      <div class="section-label">Services</div>
+      <h2>Nail Services</h2>
+      <p>Exclusively gel products. No acrylics. Please arrive with bare nails for your first visit.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Gel manicure service" width="800" height="533" loading="lazy">
+        <div class="service-card-body">
+          <h3>Gel Manicure</h3>
+          <div class="service-desc">Classic gel polish application with nail shaping and cuticle care.</div>
+          <div class="service-price">$60</div>
+          <div class="service-duration">60 min</div>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.pexels.com/photos/3997383/pexels-photo-3997383.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Builder gel manicure" width="800" height="533" loading="lazy">
+        <div class="service-card-body">
+          <h3>Builder Gel Manicure</h3>
+          <div class="service-desc">Hard gel overlay for added strength and structure on natural nails.</div>
+          <div class="service-price">$80</div>
+          <div class="service-duration">120 min</div>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.pexels.com/photos/3997387/pexels-photo-3997387.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Gel-X nail extensions" width="800" height="533" loading="lazy">
+        <div class="service-card-body">
+          <h3>Gel-X Extensions</h3>
+          <div class="service-desc">Full coverage soft gel extensions for instant length and protection.</div>
+          <div class="service-price">Book to Inquire</div>
+          <div class="service-duration">105 min</div>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.pexels.com/photos/3997381/pexels-photo-3997381.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hand-painted nail art" width="800" height="533" loading="lazy">
+        <div class="service-card-body">
+          <h3>Custom Nail Art</h3>
+          <div class="service-desc">Hand-painted designs from simple accents to intricate full-set art.</div>
+          <div class="service-price">From $15</div>
+          <div class="service-duration">20-120 min</div>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.pexels.com/photos/3997385/pexels-photo-3997385.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Gel pedicure service" width="800" height="533" loading="lazy">
+        <div class="service-card-body">
+          <h3>Gel Pedicure</h3>
+          <div class="service-desc">Complete pedicure with cuticle work, callus care, and gel polish.</div>
+          <div class="service-price">Book to Inquire</div>
+          <div class="service-duration">60-90 min</div>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.pexels.com/photos/3997375/pexels-photo-3997375.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Gel removal service" width="800" height="533" loading="lazy">
+        <div class="service-card-body">
+          <h3>Gel Removal</h3>
+          <div class="service-desc">Safe soak-off removal of gel, Gel-X, dip, or acrylic products.</div>
+          <div class="service-price">From $10</div>
+          <div class="service-duration">15-45 min</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTIST -->
+<section class="section" id="artist" style="background: var(--bg-2);">
+  <div class="section-center">
+    <div class="artist-section">
+      <div class="artist-img">
+        <img src="https://images.pexels.com/photos/3997391/pexels-photo-3997391.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Nail artist working in private studio" width="800" height="600" loading="lazy">
+      </div>
+      <div class="artist-text">
+        <div class="section-label">Your Nail Artist</div>
+        <h2>Meet Page</h2>
+        <p>Page is an independent licensed nail technician with over four years of experience. She specializes in gel services, hand-painted nail art, and high-end cuticle care inside her private suite at Phenix Salon Suites.</p>
+        <p>Every appointment is one-on-one. No crowded salon, no rushing. Page treats each set of nails as a canvas, translating your inspiration photos into wearable art with precision and care.</p>
+        <p>Little Canvas exclusively uses gel products. No acrylics, no shortcuts. Just quality work in a clean, comfortable space.</p>
+        <div class="artist-specs">
+          <div class="artist-spec">Licensed Nail Tech</div>
+          <div class="artist-spec">4+ Years Experience</div>
+          <div class="artist-spec">Gel Only</div>
+          <div class="artist-spec">Private Suite</div>
+          <div class="artist-spec">Nail Art Specialist</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process" style="background: var(--bg);">
+  <div class="section-center">
+    <div class="section-header">
+      <div class="section-label">How It Works</div>
+      <h2>Your Appointment</h2>
+      <p>A private, relaxed experience from arrival to finish.</p>
+    </div>
+    <div class="process-grid">
+      <div class="timeline-line" aria-hidden="true"></div>
+      <div class="timeline-fill" aria-hidden="true"></div>
+      <div class="process-step">
+        <div class="process-dot">1</div>
+        <div class="process-step-content">
+          <h3>Book Online</h3>
+          <p>Choose your service on Vagaro and pick a time that works for you. Please arrive with bare nails for your first appointment.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-dot">2</div>
+        <div class="process-step-content">
+          <h3>Text When You Arrive</h3>
+          <p>The front door at Phenix Salon Suites is locked for your security. Text Page when you arrive and she will meet you at the door.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-dot">3</div>
+        <div class="process-step-content">
+          <h3>Consultation &amp; Design</h3>
+          <p>Share your inspiration photos. Page will discuss colors, nail art ideas, and the best gel approach for your nails.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-dot">4</div>
+        <div class="process-step-content">
+          <h3>Artistry &amp; Care</h3>
+          <p>Relax in a private, spotless studio while Page hand-paints your design with precision. Each set is a one-of-a-kind creation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery" style="background: var(--bg-2);">
+  <div class="section-center">
+    <div class="section-header">
+      <div class="section-label">Gallery</div>
+      <h2>Nail Art Inspiration</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="https://images.pexels.com/photos/3997101/pexels-photo-3997101.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Detailed gel nail art design" width="800" height="800" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.pexels.com/photos/3997107/pexels-photo-3997107.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Elegant gel manicure close-up" width="800" height="800" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.pexels.com/photos/3997109/pexels-photo-3997109.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Creative nail art with gel polish" width="800" height="800" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.pexels.com/photos/3997393/pexels-photo-3997393.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Professional nail care and cuticle work" width="800" height="800" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.pexels.com/photos/3997098/pexels-photo-3997098.jpeg?auto=compress&cs=tinysrgb&w=800" alt="French tip gel manicure" width="800" height="800" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.pexels.com/photos/3997111/pexels-photo-3997111.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Nail art tools and finished design" width="800" height="800" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews" style="background: var(--bg);">
+  <div class="section-center">
+    <div class="section-header">
+      <div class="section-label">Reviews</div>
+      <h2>Client Love</h2>
+      <p>Real reviews from real clients.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"Ten out of ten, absolutely PHENOMENAL. Clean, comfortable, inviting, and the owner is beyond talented."</p>
+        <div class="review-author">
+          <div class="review-avatar">V</div>
+          <div><div class="review-name">Verified Client</div><div class="review-source">Vagaro</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"Page is truly an artist. Her studio is cute and always spotless. You can tell she loves what she does."</p>
+        <div class="review-author">
+          <div class="review-avatar">V</div>
+          <div><div class="review-name">Verified Client</div><div class="review-source">Google</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"Amazing at nail art and can translate inspiration photos onto nails beautifully. The best nail tech I have ever had."</p>
+        <div class="review-author">
+          <div class="review-avatar">V</div>
+          <div><div class="review-name">Verified Client</div><div class="review-source">Vagaro</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"Always on time, personable, listens well, very professional, and is cool and sweet to chat with."</p>
+        <div class="review-author">
+          <div class="review-avatar">V</div>
+          <div><div class="review-name">Verified Client</div><div class="review-source">Google</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"She is always willing to go with my creative ideas and makes them even better. An incredible artist."</p>
+        <div class="review-author">
+          <div class="review-avatar">V</div>
+          <div><div class="review-name">Verified Client</div><div class="review-source">Vagaro</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">"You can tell Page loves what she does and is very good at her craft. Incredibly talented and wonderful."</p>
+        <div class="review-author">
+          <div class="review-avatar">V</div>
+          <div><div class="review-name">Verified Client</div><div class="review-source">Google</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEW CTA -->
+<div class="review-cta-section">
+  <h3>Love Your Nails?</h3>
+  <p>Leave a Google review and get 10% off your next appointment.</p>
+  <a href="https://search.google.com/local/writereview?placeid=ChIJhYKVMP3BtokRpFyxr18CwnY" target="_blank" rel="noopener" class="review-cta-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    Leave a Review
+  </a>
+</div>
+
+<!-- HOURS & LOCATION -->
+<section class="section" id="hours" style="background: var(--bg-2);">
+  <div class="section-center">
+    <div class="section-header">
+      <div class="section-label">Visit</div>
+      <h2>Hours &amp; Location</h2>
+    </div>
+    <div class="hours-grid">
+      <div>
+        <h3 style="margin-bottom:0.5rem;">Phenix Salon Suites</h3>
+        <p style="color:var(--text-muted);margin-bottom:1rem;">1380 Carl D Silver Pkwy, Fredericksburg, VA 22401</p>
+        <a href="tel:+18044815141" style="display:inline-flex;align-items:center;gap:0.4rem;color:var(--accent);font-weight:600;margin-bottom:1.5rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          (804) 481-5141
+        </a>
+        <table class="hours-table">
+          <tr data-day="1"><td>Monday</td><td>Closed</td></tr>
+          <tr data-day="2"><td>Tuesday</td><td>10:00 AM - 6:00 PM</td></tr>
+          <tr data-day="3"><td>Wednesday</td><td>10:00 AM - 6:00 PM</td></tr>
+          <tr data-day="4"><td>Thursday</td><td>10:00 AM - 6:00 PM</td></tr>
+          <tr data-day="5"><td>Friday</td><td>10:00 AM - 6:00 PM</td></tr>
+          <tr data-day="6"><td>Saturday</td><td>10:00 AM - 2:00 PM</td></tr>
+          <tr data-day="0"><td>Sunday</td><td>Closed</td></tr>
+        </table>
+        <div class="arrival-note">
+          <strong>Arrival Note:</strong> The front door is locked for security. Please text (804) 481-5141 when you arrive and Page will meet you at the entrance.
+        </div>
+      </div>
+      <div>
+        <div class="map-container">
+          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-77.4620,38.2960,-77.4540,38.3010&layer=mapnik&marker=38.298397,-77.458032" loading="lazy" title="Map showing Little Canvas Nail Studio location"></iframe>
+        </div>
+        <a href="https://maps.google.com/?q=Little+Canvas+Nail+Studio+1380+Carl+D+Silver+Pkwy+Fredericksburg+VA" target="_blank" rel="noopener" class="map-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Open in Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq" style="background: var(--bg);">
+  <div class="section-center">
+    <div class="section-header">
+      <div class="section-label">FAQ</div>
+      <h2>Common Questions</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Do you do acrylics?</summary>
+        <p>No. Little Canvas exclusively uses gel products. This includes gel polish, builder gel (hard gel), and Gel-X soft gel extensions. No acrylics, no dip powder applications.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I book an appointment?</summary>
+        <p>Book online through Vagaro at vagaro.com/littlecanvasnailstudio. Select your service, choose a time, and you are all set. Please book at least 24 hours in advance.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What should I expect for my first visit?</summary>
+        <p>Please arrive with bare nails (no existing product). When you get to Phenix Salon Suites, the front door will be locked. Text Page at (804) 481-5141 and she will meet you at the door.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How much does nail art cost?</summary>
+        <p>Nail art starts at $15 for French tips and simple accents. Hand-painted designs range from $20 for basic art up to $60 or more for intricate full-set designs. Chrome is $5. 3D sculpted art starts at $10. Nail art pricing is in addition to your base manicure service.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What is your cancellation policy?</summary>
+        <p>Please cancel or reschedule at least 24 hours before your appointment. Late cancellations or no-shows may be charged a fee of 50% of your scheduled service price.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you offer nail repairs?</summary>
+        <p>Yes. Nail repairs within 10 days of your last appointment are free. After 10 days, repairs start at $10.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is the studio private?</summary>
+        <p>Yes. Little Canvas is a private suite inside Phenix Salon Suites. Your appointment is one-on-one with Page in a clean, comfortable space. No crowded salon, no waiting.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-banner-bg" aria-hidden="true"></div>
+  <div class="cta-banner-overlay" aria-hidden="true"></div>
+  <div class="cta-banner-content">
+    <h2>Ready for Your Next Set?</h2>
+    <p>Book your private appointment with Page today.</p>
+    <div class="cta-banner-actions">
+      <a href="https://www.vagaro.com/littlecanvasnailstudio" target="_blank" rel="noopener" class="cta-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book on Vagaro
+      </a>
+      <a href="tel:+18044815141" class="cta-dir">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        Text Page
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Little Canvas</h3>
+      <p>Private gel nail studio and hand-painted nail art by Page Olsen. Inside Phenix Salon Suites, Fredericksburg, VA.</p>
+      <p style="margin-top:0.75rem;">1380 Carl D Silver Pkwy, Fredericksburg, VA 22401</p>
+      <p>(804) 481-5141</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#services">Services</a>
+      <a href="#artist">About Page</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#hours">Hours</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="https://www.instagram.com/littlecanvasnailstudio/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/339434332588190" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.vagaro.com/littlecanvasnailstudio" target="_blank" rel="noopener">Book on Vagaro</a>
+      <a href="mailto:littlecanvasnailstudio@gmail.com">Email</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 Little Canvas Nail Studio LLC. All rights reserved.</span>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/littlecanvasnailstudio/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/339434332588190" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY -->
+<div class="mobile-sticky">
+  <a href="tel:+18044815141" class="sticky-call">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+    Text Page
+  </a>
+  <a href="https://maps.google.com/?q=Little+Canvas+Nail+Studio+1380+Carl+D+Silver+Pkwy+Fredericksburg+VA" target="_blank" rel="noopener" class="sticky-dir">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    Directions
+  </a>
+</div>
+
+<!-- POPUPS -->
+<div class="popup-overlay" id="exitPopup">
+  <div class="popup">
+    <button class="popup-close" onclick="this.parentElement.parentElement.classList.remove('show')">&times;</button>
+    <h3>Follow the Art</h3>
+    <p>See the latest nail art designs and seasonal specials on Instagram.</p>
+    <a href="https://www.instagram.com/littlecanvasnailstudio/" target="_blank" rel="noopener" class="popup-btn">Follow @littlecanvasnailstudio</a>
+  </div>
+</div>
+<div class="popup-overlay" id="scrollPopup">
+  <div class="popup">
+    <button class="popup-close" onclick="this.parentElement.parentElement.classList.remove('show')">&times;</button>
+    <h3>Book Before Spots Fill</h3>
+    <p>As a solo artist, Page has limited availability each week. Secure your appointment now.</p>
+    <a href="https://www.vagaro.com/littlecanvasnailstudio" target="_blank" rel="noopener" class="popup-btn">Book on Vagaro</a>
+  </div>
+</div>
+<div class="popup-overlay" id="timedPopup">
+  <div class="popup">
+    <button class="popup-close" onclick="this.parentElement.parentElement.classList.remove('show')">&times;</button>
+    <h3>New Clients Welcome</h3>
+    <p>Arrive with bare nails and let Page create something beautiful. Private studio, one-on-one attention.</p>
+    <a href="https://www.vagaro.com/littlecanvasnailstudio" target="_blank" rel="noopener" class="popup-btn">Book Your First Visit</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var nav = document.querySelector('nav');
+  var hero = document.querySelector('.hero');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > hero.offsetHeight * 0.6);
+  });
+
+  var canvas = document.getElementById('heroCanvas');
+  var ctx = canvas.getContext('2d');
+  var video = document.createElement('video');
+  video.muted = true; video.loop = true; video.playsInline = true;
+  video.setAttribute('playsinline',''); video.setAttribute('webkit-playsinline','');
+  video.src = window.innerWidth < 768 ? 'assets/hero-mobile.mp4' : 'assets/hero.mp4';
+  function resizeCanvas(){ canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+  function drawFrame(){ if(!video.paused && !video.ended) ctx.drawImage(video, 0, 0, canvas.width, canvas.height); requestAnimationFrame(drawFrame); }
+  video.addEventListener('loadeddata', function(){ resizeCanvas(); video.play().catch(function(){}); drawFrame(); });
+  window.addEventListener('resize', resizeCanvas);
+  video.load();
+
+  var today = new Date().getDay();
+  var row = document.querySelector('tr[data-day="' + today + '"]');
+  if(row){ row.classList.add('today'); var cell = row.querySelector('td'); if(cell){ var badge = document.createElement('span'); badge.className = 'today-badge'; badge.textContent = 'Today'; cell.appendChild(badge); } }
+
+  var steps = document.querySelectorAll('.process-step');
+  var fill = document.querySelector('.timeline-fill');
+  var grid = document.querySelector('.process-grid');
+  function updateTimeline(){
+    if(!grid) return;
+    var r = grid.getBoundingClientRect(), t = window.innerHeight * 0.7;
+    var p = Math.min(1, Math.max(0, (t - r.top) / r.height));
+    if(fill) fill.style.height = (p * 100) + '%';
+    steps.forEach(function(s){ s.classList.toggle('active', s.getBoundingClientRect().top < t); });
+  }
+  window.addEventListener('scroll', updateTimeline); updateTimeline();
+
+  var shown = {};
+  function showPopup(id){ if(shown[id]) return; shown[id] = true; var el = document.getElementById(id); if(el) el.classList.add('show'); }
+  document.addEventListener('mouseleave', function(e){ if(e.clientY < 10) showPopup('exitPopup'); });
+  window.addEventListener('scroll', function(){ if(window.scrollY / (document.body.scrollHeight - window.innerHeight) > 0.6) showPopup('scrollPopup'); });
+  setTimeout(function(){ showPopup('timedPopup'); }, 30000);
+  document.querySelectorAll('.popup-overlay').forEach(function(o){ o.addEventListener('click', function(e){ if(e.target === o) o.classList.remove('show'); }); });
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var target = document.querySelector(this.getAttribute('href'));
+      if(target){ e.preventDefault(); window.scrollTo({top: target.getBoundingClientRect().top + window.scrollY - nav.offsetHeight, behavior: 'smooth'}); document.getElementById('navLinks').classList.remove('open'); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
